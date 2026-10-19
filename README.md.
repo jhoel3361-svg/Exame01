@@ -1,0 +1,33 @@
+
+# EXAMEN 01 - PROGRAMACIÓN EN DART
+
+## Descripción
+Este repositorio contiene cuatro ejercicios desarrollados en Dart para practicar programación orientada a objetos, estructuras repetitivas, condicionales y colecciones.
+
+## Ejercicios
+
+### Ejercicio 1: Estudiante
+- Registro del nombre y las notas.
+- Cálculo del promedio.
+- Determinación del estado: aprobado o desaprobado.
+
+### Ejercicio 2: Producto
+- Registro del nombre, precio y cantidad.
+- Cálculo del valor total del inventario.
+- Validación de datos y control del stock.
+
+### Ejercicio 3: Vendedor
+- Registro del nombre y las ventas.
+- Cálculo de comisiones según el monto vendido.
+- Validación del monto de ventas.
+
+### Ejercicio 4: Registro de temperaturas
+- Registro de temperaturas durante cinco días.
+- Cálculo del promedio.
+- Conteo de días con temperaturas superiores a 30 °C.
+
+## Lenguaje utilizado
+- Dart
+
+## Autor
+Jhoel Chavez
