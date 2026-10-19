@@ -1,0 +1,46 @@
+
+import 'dart:io';
+
+class Vendedor {
+  String nombre;
+  double totalVentas;
+
+  Vendedor(this.nombre, this.totalVentas);
+
+  double calcularComision() {
+    if (totalVentas >= 2000) {
+      return totalVentas * 0.10;
+    } else {
+      return totalVentas * 0.05;
+    }
+  }
+
+  void mostrarReporte() {
+    print("\n----- REPORTE DEL VENDEDOR -----");
+    print("Vendedor        : $nombre");
+    print("Monto de Ventas : S/ ${totalVentas.toStringAsFixed(2)}");
+    print("Comisión Ganada : S/ ${calcularComision().toStringAsFixed(2)}");
+    print("--------------------------------");
+  }
+}
+
+void main() {
+  print("=== REGISTRO DE VENDEDOR ===");
+
+  stdout.write("Ingrese el nombre del vendedor: ");
+  String nombre = stdin.readLineSync() ?? "";
+
+  double ventas = 0;
+
+  do {
+    stdout.write("Ingrese el monto total de ventas: ");
+    ventas = double.parse(stdin.readLineSync() ?? "0");
+
+    if (ventas < 0) {
+      print("Error: El monto de ventas no puede ser negativo.");
+    }
+  } while (ventas < 0);
+
+  Vendedor vendedor1 = Vendedor(nombre, ventas);
+  vendedor1.mostrarReporte();
+}
