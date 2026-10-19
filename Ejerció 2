@@ -1,0 +1,67 @@
+
+import 'dart:io';
+
+class Producto {
+  String nombre;
+  double precioUnitario;
+  int cantidadDisponible;
+
+  Producto(this.nombre, this.precioUnitario, this.cantidadDisponible);
+
+  double calcularValorInventario() {
+    return precioUnitario * cantidadDisponible;
+  }
+
+  String determinarEstadoStock() {
+    if (cantidadDisponible == 0) {
+      return "Stock agotado";
+    } else if (cantidadDisponible >= 1 &&
+        cantidadDisponible <= 5) {
+      return "Stock bajo";
+    } else {
+      return "Stock suficiente";
+    }
+  }
+
+  void mostrarInformacion() {
+    print("\n----- INFORMACIÓN DEL PRODUCTO -----");
+    print("Nombre            : $nombre");
+    print("Precio Unitario   : S/ ${precioUnitario.toStringAsFixed(2)}");
+    print("Cantidad          : $cantidadDisponible unidades");
+    print("Valor Inventario  : S/ ${calcularValorInventario().toStringAsFixed(2)}");
+    print("Estado del Stock  : ${determinarEstadoStock()}");
+    print("-----------------------------------");
+  }
+}
+
+void main() {
+  print("=== REGISTRO DE PRODUCTO ===");
+
+  stdout.write("Ingrese el nombre del producto: ");
+  String nombre = stdin.readLineSync() ?? "";
+
+  double precio = 0;
+
+  do {
+    stdout.write("Ingrese el precio unitario (> 0): ");
+    precio = double.parse(stdin.readLineSync() ?? "0");
+
+    if (precio <= 0) {
+      print("Error: El precio debe ser mayor que cero.");
+    }
+  } while (precio <= 0);
+
+  int cantidad = -1;
+
+  do {
+    stdout.write("Ingrese la cantidad disponible (>= 0): ");
+    cantidad = int.parse(stdin.readLineSync() ?? "-1");
+
+    if (cantidad < 0) {
+      print("Error: La cantidad no puede ser negativa.");
+    }
+  } while (cantidad < 0);
+
+  Producto producto1 = Producto(nombre, precio, cantidad);
+  producto1.mostrarInformacion();
+}
